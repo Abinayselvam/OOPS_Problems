@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Account/Account.iml" filepath="$PROJECT_DIR$/Account/Account.iml" />
       <module fileurl="file://$PROJECT_DIR$/CompanyShare/CompanyShare.iml" filepath="$PROJECT_DIR$/CompanyShare/CompanyShare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DeckOfCards/DeckOfCards.iml" filepath="$PROJECT_DIR$/DeckOfCards/DeckOfCards.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/OOPS_Problems.iml" filepath="$PROJECT_DIR$/.idea/OOPS_Problems.iml" />
       <module fileurl="file://$PROJECT_DIR$/Stocks/Stocks.iml" filepath="$PROJECT_DIR$/Stocks/Stocks.iml" />
     </modules>
