@@ -1,0 +1,4 @@
+TCS 100 3500
+Infosys 50 1400
+Wipro 80 450
+HCL 60 1200
