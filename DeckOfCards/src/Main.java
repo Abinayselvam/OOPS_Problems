@@ -5,50 +5,46 @@ public class Main {
     public static void main(String[] args) {
 
         String[] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
-        String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10",
-                "Jack", "Queen", "King", "Ace"};
+        String[] ranks = {"2","3","4","5","6","7","8","9","10",
+                "Jack","Queen","King","Ace"};
 
-        // Step 1: Create deck
-        String[] deck = new String[52];
+        Card[] deck = new Card[52];
         int index = 0;
 
+        // create deck
         for (String suit : suits) {
             for (String rank : ranks) {
-                deck[index++] = rank + " of " + suit;
+                deck[index++] = new Card(suit, rank);
             }
         }
 
-        // Step 2: Shuffle
+        // shuffle
         Random rand = new Random();
-
-        for (int i = 0; i < deck.length; i++) {
-            int randomIndex = rand.nextInt(52);
-
-            // swap
-            String temp = deck[i];
-            deck[i] = deck[randomIndex];
-            deck[randomIndex] = temp;
+        for (int i = 0; i < 52; i++) {
+            int r = rand.nextInt(52);
+            Card temp = deck[i];
+            deck[i] = deck[r];
+            deck[r] = temp;
         }
 
-        // Step 3: Distribute to 4 players (9 cards each)
-        String[][] players = new String[4][9];
+        // create players
+        Player[] players = new Player[4];
+        for (int i = 0; i < 4; i++) {
+            players[i] = new Player(i + 1);
+        }
 
+        // distribute 9 cards each
         int cardIndex = 0;
-
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 9; j++) {
-                players[i][j] = deck[cardIndex++];
+                players[i].cards.enqueue(deck[cardIndex++]);
             }
         }
 
-        // Step 4: Print
-        for (int i = 0; i < 4; i++) {
-            System.out.println("Player " + (i + 1) + ":");
-
-            for (int j = 0; j < 9; j++) {
-                System.out.println("  " + players[i][j]);
-            }
-
+        // sort and print
+        for (Player p : players) {
+            p.sortCards();
+            p.showCards();
             System.out.println();
         }
     }
